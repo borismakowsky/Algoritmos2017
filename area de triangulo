@@ -1,0 +1,31 @@
+// Fecha:15/02/2017
+
+// Declarar librerias
+#include "stdafx.h"  //Libreria del Visual C++ stdio
+#include "conio.h"   //Para manejar la entrada y getch()
+#include <iostream>  // Entrada y salida cin, cout
+
+// Declara el teclado y el monitor como la salida y entrada estandard
+using namespace std;
+
+// El cuerpo principal del programa
+void main()
+{
+   float area,base,altura;
+   cout<<"Ingrese base: ";
+   cin>>base;
+   cout<<"Ingrese altura: ";
+   cin>>altura;
+   if ((base<=0)||(altura<=0))
+   
+	   cout<<"Error";
+   
+   else
+   {
+   area=(base*altura)/2;
+  cout<<"El area es: "<<area;
+   }
+
+   getch(); // Detiene la pantalla
+}
+//Finaliza el cuerpo principal
