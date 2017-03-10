@@ -1,0 +1,227 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+void poten ();
+float milla (float x);
+float menor (float x,float y);
+void sueldo (float x,float y,float tarifa);
+float cubo (float n);
+void sueld (float x);
+float mcd (int x,int y);
+float mcm (int x,int y);
+float calcpoten (float n,float c);
+float factorial (float n);
+
+
+void main()
+
+{
+	int opcion;
+	do
+	{
+		cout<<"-----MENU-------"<<endl;
+		cout<<"1.-CUBO"<<endl;
+		cout<<"2.-RAIZ Y POTENCIA DE PI"<<endl;
+		cout<<"3.-SUELDO"<<endl;
+		cout<<"4.-HALLAR MCD DE DOS NUMEROS"<<endl;
+		cout<<"5.-HALLAR EL MCM DE DOS NUMEROS"<<endl;
+		cout<<"6.-HALLAR SERIE EJERCICIO 4 PRACTICO DE FUNCIONES"<<endl;
+		cout<<"0.-SALIR "<<endl;
+		cout<<"ELIJA LA OPCION"<<endl;
+		cout<<"-----------"<<endl;
+		cin>>opcion;
+		switch (opcion)
+		{
+		case 1:
+			{
+				float n,result;
+				cout<<"Ingrese el numero"<<endl;
+				cin>>n;
+				result=cubo (n);
+				cout<<"EL resultado sera "<<result<<endl;break;
+			}
+		case 2:
+			{
+				
+				poten ();break;
+			}
+		case 3:
+			{
+				float sueldo;
+				cout<<"INTRODUCIR EL SUELDO"<<endl;
+				cin>>sueldo;
+				sueld(sueldo);break;
+			}
+		case 4:
+			{
+				int x,y,result;
+				cout<<"INTRODUIR EL PRIMER NUMERO"<<endl;
+				cin>>x;
+				cout<<"INTRODUCIR EL SEGUNDO NUMERO"<<endl;
+				cin>>y;
+				result=mcd(x,y);
+				cout<<"EL MCD SERA: "<<result<<endl;break;
+				
+			}
+		case 5:
+			{
+				int x,y,result;
+				cout<<"INTRODUIR EL PRIMER NUMERO"<<endl;
+				cin>>x;
+				cout<<"INTRODUCIR EL SEGUNDO NUMERO"<<endl;
+				cin>>y;
+				result=mcm(x,y);
+				cout<<"EL MCD SERA: "<<result<<endl;break;
+			}
+		case 6:
+			{
+				float base,result,n;
+				cout<<"INTRODUCIR EL NUMERO"<<endl;
+				cin>>base;
+				cout<<"INTRODUCIR HASTA QUE POTENCIA LLEGAR";
+				cin>>n;
+				result=calcpoten(base,n);
+				cout<<"EL RESULTADO SERA: "<<result<<endl;break;
+			}
+
+		case 0:
+			{
+				cout<<"SALIENDO DE EL PROGRAMA... "<<endl;break;
+			}
+		default:
+			cout<<"ERROR.."<<endl;break;
+		}
+	}
+	while (opcion>0 && opcion<=6);
+
+
+
+	getch();
+}
+
+
+			void poten ()
+			{
+				float i,m,p=3.1416,x=3.1416;
+				for(i=2;i<=10;i++)
+				{
+					p=p*x;
+					cout<<"PI elevado a "<<i<<" es igual a: "<<p<<endl;
+					m=sqrt(p);
+					cout<<"Raiz de PI elevado a la "<<i<<" es igual a: "<<m<<endl;
+				}
+
+			}
+
+			float milla (float x)
+			{
+				float m;
+				m=x/1609.344;
+				return m;
+			}
+
+			float menor (float x,float y)
+			{
+				float m;
+				if (x>y)
+					m=y;
+				else
+					m=x;
+				return x;
+			}
+			void sueldo (float x,float y,float tarifa)
+			{
+
+				float m;
+				if (y<=0)
+				{
+					m=tarifa*x;
+					cout<<"El sueldo sera: "<<m;
+				}
+				else
+				{
+					if (y>0)
+					{
+						m=(tarifa*x)+(y*2*tarifa);
+						cout<<"El sueldo sera: "<<m;
+					}
+				}
+			}
+
+			void sueld (float x)
+			{
+				float m;
+				if(x<=1000)
+				{
+					m=x-(0.10*x);
+					cout<<"EL SUELDO SERA: "<<m<<endl;
+				}
+				else
+				{
+					if (x>1000 && x<=2000)
+					{
+						m=x-(x*0.15);
+						cout<<"EL SUELDO SERA: "<<m<<endl;
+					}
+					else
+					{
+						if(x>2000)
+						{
+							m=x-(0.18*x);
+							cout<<"EL SUELDO SERA: "<<m<<endl;
+						}
+					}
+				}
+			}
+			float cubo (float n)
+			{
+				float m;
+				m=pow(n,3);
+				return m;
+			}
+			float mcd (int x,int y)
+			{
+				float mayor,m;
+				int i;
+				if (x<y)
+					mayor=x;
+				else
+					mayor=y;
+				for (i=1;i<=mayor;i++)
+				{
+					if(x%i==0 && y%i==0)
+						m=i;
+				}
+				return m;
+			}
+			float mcm (int x,int y)
+			{
+				float m,z;
+				m=mcd(x,y);
+				z=(x*y)/m;
+				return z;
+			}
+			float factorial (float n)
+			{
+				float fac=1;
+				for(int i=1;i<=n;i++)
+				fac=fac*i;
+				return fac;
+			}
+			float calcpoten (float n,float c)
+			{
+				float m,y,t=0;
+				int sig=1;
+				for(int i=1;i<=c;i=i+2)
+				{
+				m=pow(n,i);
+				y=factorial(i);
+				t=t+((m/y)*sig);
+				sig=sig*-1;
+				}
+				return t;
+			}
