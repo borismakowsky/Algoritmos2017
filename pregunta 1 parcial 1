@@ -1,0 +1,44 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+void riesgo (int sueldo,int historial,int moroso,int hipoteca);
+
+void main ()
+
+{
+	int sueldo,historial,moroso,hipoteca;
+	cout<<"INGRESE EL SUELDO"<<endl;
+	cin>>sueldo;
+	cout<<"DIGA SI TIENE HISTORIAL      SI=0   NO=1"<<endl;
+	cin>>historial;
+	cout<<"INDIQUE SI ES MOROSO      SI=0    NO=1"<<endl;
+	cin>>moroso;
+	cout<<"INGRESE LA HIPOTECA QUE PAGA AL MES"<<endl;
+	cin>>hipoteca;
+	riesgo(sueldo,historial,moroso,hipoteca);
+
+	getch();
+}
+
+void riesgo (int sueldo,int historial,int moroso,int hipoteca)
+
+{
+	if ((historial==0 && moroso==0) || (hipoteca>=0.3*sueldo))
+		cout<<"1 "<<"RIEGO ALTO"<<endl;
+	else
+	{
+
+		if ((historial==1 && hipoteca<=0.20*sueldo) || (historial==0 && moroso==1 && hipoteca<=0.3*sueldo))
+			cout<<"2 "<<"RIEGO MEDIO"<<endl;
+		else
+		{
+				if (historial==0 && moroso==1 && hipoteca=0.1*sueldo)
+					cout<<"3 "<<"RIEGO BAJO"<<endl;
+		}
+		
+	}
+
+}
