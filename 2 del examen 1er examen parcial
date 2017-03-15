@@ -1,0 +1,37 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+
+void operacion (float x,float n);
+
+void main ()
+
+{
+	float n,x;
+	cout<<"INGRESE EL VALOR DE X : "<<endl;
+	cin>>x;
+	cout<<"INGRESE HASTA QUE EXPONENTE LLEGAR"<<endl;
+	cin>>n;
+	operacion (x,n);
+
+	getch();
+}
+
+void operacion (float x,float n)
+{
+	float m,i,s=0;
+	m=(1+(1/x));
+	if (x>0 && n>0)
+	{
+		for(i=1;i<=n;i++)
+			s=s+pow(m,i);
+		cout<<"EL RESULTADO DE LA SUMA SERA  "<<s<<endl;
+	}
+	else
+		cout<<"ERROR"<<endl;
+}
+
